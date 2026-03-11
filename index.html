@@ -240,6 +240,28 @@ a{color:var(--accent2);text-decoration:none}
     </div>
 
     <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:20px">
+      <h3 style="font-size:14px;margin-bottom:12px">Theme</h3>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Each theme changes the site name, branding, legal references, and context of questions. Same scoring engine underneath.</p>
+      <div id="builder-themes" style="display:flex;flex-direction:column;gap:6px">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;background:var(--surface);border-radius:6px;font-size:12px;color:var(--muted)">
+          <input type="radio" name="builder-theme" value="freelance" checked onchange="buildLink()"> 💼 <strong>WorkPro</strong> — Freelance platform
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;background:var(--surface);border-radius:6px;font-size:12px;color:var(--muted)">
+          <input type="radio" name="builder-theme" value="medical" onchange="buildLink()"> 🏥 <strong>MedVerify</strong> — Healthcare provider
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;background:var(--surface);border-radius:6px;font-size:12px;color:var(--muted)">
+          <input type="radio" name="builder-theme" value="bank" onchange="buildLink()"> 🏦 <strong>SecureBank</strong> — Banking KYC
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;background:var(--surface);border-radius:6px;font-size:12px;color:var(--muted)">
+          <input type="radio" name="builder-theme" value="support" onchange="buildLink()"> 🎧 <strong>HelpDesk</strong> — Support agent
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;background:var(--surface);border-radius:6px;font-size:12px;color:var(--muted)">
+          <input type="radio" name="builder-theme" value="legal" onchange="buildLink()"> ⚖️ <strong>LegalScreen</strong> — Legal professional
+        </label>
+      </div>
+    </div>
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:20px">
       <h3 style="font-size:14px;margin-bottom:8px">Language</h3>
       <div style="display:flex;gap:12px">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;color:var(--muted)">
@@ -1080,14 +1102,19 @@ function buildLink() {
   var selected = [];
   checks.forEach(function(c) { if (c.checked) selected.push(c.value); });
   var lang = document.querySelector('input[name="builder-lang"]:checked').value;
+  var theme = document.querySelector('input[name="builder-theme"]:checked').value;
   var base = window.location.origin + window.location.pathname.replace(/[^\/]*$/, "");
   var page = lang === "ru" ? "verify.html" : "apply.html";
   var allMods = ["reg","sensory","skills","services","accusation","medical","terror","final"];
   var isAll = selected.length === allMods.length && allMods.every(function(m) { return selected.indexOf(m) !== -1; });
+  var params = [];
+  if (theme !== "freelance") params.push("theme=" + theme);
+  if (!isAll && selected.length > 0) params.push("t=" + selected.join(","));
   var url = base + page;
-  if (!isAll && selected.length > 0) url += "?t=" + selected.join(",");
+  if (params.length) url += "?" + params.join("&");
   document.getElementById("builder-url").value = url;
-  document.getElementById("builder-steps").textContent = selected.length + " modules, ~" + (selected.length * 4) + " fields";
+  var themeNames = {freelance:"WorkPro",medical:"MedVerify",bank:"SecureBank",support:"HelpDesk",legal:"LegalScreen"};
+  document.getElementById("builder-steps").textContent = (themeNames[theme]||theme) + " · " + selected.length + " modules";
 }
 
 function toggleAll(state) {
