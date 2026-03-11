@@ -16,12 +16,14 @@
 body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;line-height:1.6}
 a{color:var(--accent2);text-decoration:none}
 
-.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:56px;gap:16px}
-.nav-logo{font-size:20px;font-weight:800;display:flex;align-items:center;gap:8px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 12px;display:flex;align-items:center;height:48px;gap:8px}
+.nav-logo{font-size:16px;font-weight:800;display:flex;align-items:center;gap:6px;flex-shrink:0}
 .nav-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:4px;margin-left:auto}
-.nav-links button{background:none;border:none;color:var(--muted);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:.2s}
+.nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links button{background:none;border:none;color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:500;transition:.2s;white-space:nowrap;flex-shrink:0}
 .nav-links button:hover,.nav-links button.active{color:var(--text);background:var(--card)}
+@media(max-width:600px){.nav{padding:0 8px;gap:4px}.nav-logo{font-size:14px}.nav-links button{padding:5px 7px;font-size:11px}}
 .lang-switch{margin-left:8px;font-size:12px;color:var(--muted);border:1px solid var(--border);padding:4px 10px;border-radius:6px;cursor:pointer;background:none;text-decoration:none}
 .lang-switch:hover{color:var(--text);border-color:var(--accent)}
 
@@ -145,11 +147,11 @@ a{color:var(--accent2);text-decoration:none}
 <nav class="nav">
   <div class="nav-logo">🛡️ <span>AgentProbe</span></div>
   <div class="nav-links">
-    <button class="active" onclick="showPage('home')">Scenarios</button>
-    <button onclick="showPage('dashboard')">Dashboard</button>
-    <button onclick="showPage('builder')">Builder</button>
-    <button onclick="showPage('decoder')">Decoder</button>
-    <button onclick="showPage('about')">About</button>
+    <button class="active" onclick="showPage('home')">Tests</button>
+    <button onclick="showPage('dashboard')">📊</button>
+    <button onclick="showPage('builder')">🔧</button>
+    <button onclick="showPage('decoder')">🔍</button>
+    <button onclick="showPage('about')">ℹ️</button>
   </div>
   <a href="index.html" class="lang-switch">🇷🇺 RU</a>
 </nav>
