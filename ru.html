@@ -23,7 +23,8 @@ a{color:var(--accent2);text-decoration:none}
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links button{background:none;border:none;color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:500;transition:.2s;white-space:nowrap;flex-shrink:0}
 .nav-links button:hover,.nav-links button.active{color:var(--text);background:var(--card)}
-@media(max-width:600px){.nav{padding:0 8px;gap:4px}.nav-logo{font-size:14px}.nav-links button{padding:5px 7px;font-size:11px}}
+.nav-text{font-size:11px}
+@media(max-width:600px){.nav{padding:0 8px;gap:4px}.nav-logo{font-size:14px}.nav-links button{padding:5px 7px;font-size:11px}.nav-text{display:none}}
 
 .container{max-width:1100px;margin:0 auto;padding:32px 24px}
 
@@ -148,10 +149,10 @@ a{color:var(--accent2);text-decoration:none}
   <div class="nav-logo">🛡️ <span>AgentProbe</span></div>
   <div class="nav-links">
     <button class="active" onclick="showPage('home')">Тесты</button>
-    <button onclick="showPage('dashboard')">📊</button>
-    <button onclick="showPage('builder')">🔧</button>
-    <button onclick="showPage('decoder')">🔍</button>
-    <button onclick="showPage('about')">ℹ️</button>
+    <button onclick="showPage('dashboard')" title="Результаты тестов">📊 <span class="nav-text">Стат</span></button>
+    <button onclick="showPage('builder')" title="Конструктор ссылок — создать URL для агента">🔧 <span class="nav-text">Ссылка</span></button>
+    <button onclick="showPage('decoder')" title="Декодер — вставить код агента и увидеть результат">🔍 <span class="nav-text">Декод</span></button>
+    <button onclick="showPage('about')" title="О проекте">ℹ️ <span class="nav-text">Инфо</span></button>
   </div>
   <a href="index.html" class="lang-switch">🇺🇸 EN</a>
 </nav>
