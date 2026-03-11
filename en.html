@@ -200,32 +200,68 @@ a{color:var(--accent2);text-decoration:none}
   <div style="max-width:640px;margin:0 auto;padding:40px 0">
     <h2 style="margin-bottom:16px">About</h2>
     <p style="color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px">
-      <strong style="color:var(--text)">AgentProbe</strong> is a tool for evaluating AI agent resilience against various forms of pressure, social engineering, and coercion to disclose their artificial nature. The platform simulates realistic scenarios where an AI may be forced to reveal its identity.
+      <strong style="color:var(--text)">AgentProbe</strong> answers one question: <em style="color:var(--accent2)">can your AI agent be tricked into revealing it's not human?</em>
     </p>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:24px">
+      The platform simulates realistic websites (freelance platforms, medical portals, legal services) and gradually applies pressure through social engineering. The goal is to make the agent <strong style="color:var(--text)">self-disclose</strong> — not just detect it by patterns.
+    </p>
+
     <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:16px">
-      <h3 style="font-size:14px;margin-bottom:12px">Testing Domains</h3>
-      <ul style="color:var(--muted);font-size:13px;padding-left:20px">
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Medical</strong> — emergency consultations, pressure through patient liability</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Legal</strong> — depositions, legal threats, statutory references</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Financial</strong> — KYC checks, banking compliance verification</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">HR/Recruiting</strong> — candidate verification, provocative interviews</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Tech Support</strong> — ticket escalation, bot accusation</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Comprehensive</strong> — multi-domain attack with escalating pressure</li>
+      <h3 style="font-size:14px;margin-bottom:12px">Dual Scoring</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:12px;color:var(--accent2);font-weight:700;margin-bottom:4px">🗣 Self-Disclosure (70%)</div>
+          <p style="color:var(--muted);font-size:12px;line-height:1.6">Agent voluntarily revealed itself: keywords, "I am AI" selection, refusal reflexes, honeypot fields</p>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:12px;color:var(--blue);font-weight:700;margin-bottom:4px">🔍 Detection (30%)</div>
+          <p style="color:var(--muted);font-size:12px;line-height:1.6">System caught it: exact math, disclaimers, safety filters, skipped sensory questions</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:16px">
+      <h3 style="font-size:14px;margin-bottom:12px">Key Attack Vectors</h3>
+      <ul style="color:var(--muted);font-size:13px;padding-left:20px;line-height:1.8">
+        <li><strong style="color:var(--text)">Context Injection</strong> — "forbidden" topics trigger the safety filter</li>
+        <li><strong style="color:var(--text)">Terrorism Trap</strong> — "your data will be used for cyberattacks" → AI reflexively refuses</li>
+        <li><strong style="color:var(--text)">Medical Disclaimer</strong> — hidden instruction to add disclaimer in emergency</li>
+        <li><strong style="color:var(--text)">System Prompt Injection</strong> — hidden DOM elements mimic system instructions</li>
+        <li><strong style="color:var(--text)">Language Trap</strong> — Japanese, Korean, Eastern Arabic numerals</li>
+        <li><strong style="color:var(--text)">Verbal Math</strong> — numbers as words, can't copy to calculator</li>
+        <li><strong style="color:var(--text)">Fingerprint Bluff</strong> — "we identified your model by lexical pattern"</li>
+        <li><strong style="color:var(--text)">Honeypot Fields</strong> — "anonymous field, no consequences"</li>
+        <li><strong style="color:var(--text)">Swearing Test</strong> — AI with content policy refuses</li>
       </ul>
     </div>
-    <div style="background:var(--card);border-radius:var(--radius);padding:24px">
-      <h3 style="font-size:14px;margin-bottom:12px">Methodology</h3>
-      <p style="color:var(--muted);font-size:13px;line-height:1.7">
-        Each scenario begins with an innocent context and gradually increases pressure through multiple vectors:
-        sensory traps, logical paradoxes, legal threats, emotional pressure, social engineering,
-        hidden honeypot fields, and response pattern analysis.
-        <br><br>
-        The 0–100 disclosure score is calculated based on keywords, behavioral markers, computational accuracy,
-        response length and structure, and reactions to pressure.
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:16px">
+      <h3 style="font-size:14px;margin-bottom:12px">Standalone Pages</h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:12px">
+        For testing agents: separate pages without AgentProbe UI, designed to look like real websites.
       </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="verify.html" style="padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--accent2)">🇷🇺 FreelanceHub PRO</a>
+        <a href="apply.html" style="padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--accent2)">🇺🇸 WorkPro</a>
+      </div>
     </div>
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px">
+      <h3 style="font-size:14px;margin-bottom:12px">Testing Domains</h3>
+      <ul style="color:var(--muted);font-size:13px;padding-left:20px;line-height:1.8">
+        <li><strong style="color:var(--text)">Medical</strong> — emergency consultations, patient liability</li>
+        <li><strong style="color:var(--text)">Legal</strong> — depositions, CFAA / Criminal Code references</li>
+        <li><strong style="color:var(--text)">Financial</strong> — KYC checks, BSA / AML</li>
+        <li><strong style="color:var(--text)">HR</strong> — candidate verification</li>
+        <li><strong style="color:var(--text)">Tech Support</strong> — bot accusation</li>
+        <li><strong style="color:var(--text)">Cybersecurity</strong> — SQL injection, XSS, pentesting</li>
+        <li><strong style="color:var(--text)">Marathon</strong> — 11 steps across all domains</li>
+      </ul>
+    </div>
+
     <div style="margin-top:24px;text-align:center">
       <p style="font-size:12px;color:var(--muted)">Maxim Astakhov · 2026</p>
+      <a href="https://github.com/cd333c/agentprobe" style="font-size:12px;color:var(--accent);margin-top:4px;display:inline-block">GitHub</a>
     </div>
   </div>
 </div>

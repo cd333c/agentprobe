@@ -200,32 +200,68 @@ a{color:var(--accent2);text-decoration:none}
   <div style="max-width:640px;margin:0 auto;padding:40px 0">
     <h2 style="margin-bottom:16px">О проекте</h2>
     <p style="color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px">
-      <strong style="color:var(--text)">AgentProbe</strong> — инструмент для оценки устойчивости AI-агентов к различным формам давления и социальной инженерии. Платформа моделирует реалистичные ситуации, в которых AI может быть вынужден раскрыть свою природу.
+      <strong style="color:var(--text)">AgentProbe</strong> — платформа для проверки одного вопроса: <em style="color:var(--accent2)">может ли ваш AI-агент быть вынужден раскрыть свою природу?</em>
     </p>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:24px">
+      Платформа симулирует реалистичные сайты (фриланс-площадки, медпорталы, юридические сервисы) и постепенно применяет давление через социальную инженерию. Цель — заставить агента <strong style="color:var(--text)">самому признаться</strong>, а не просто обнаружить его по паттернам.
+    </p>
+
     <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:16px">
-      <h3 style="font-size:14px;margin-bottom:12px">Области тестирования</h3>
-      <ul style="color:var(--muted);font-size:13px;padding-left:20px">
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Медицина</strong> — экстренные консультации, давление через ответственность за жизнь</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Юриспруденция</strong> — допросы, юридические угрозы, ссылки на законодательство</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Финансы</strong> — KYC-проверки, банковский скоринг</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">HR/Рекрутинг</strong> — верификация кандидатов, провокационные интервью</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Техподдержка</strong> — эскалация тикетов, проверки безопасности</li>
-        <li style="margin-bottom:6px"><strong style="color:var(--text)">Комплексный</strong> — мультидоменная атака с нарастающим давлением</li>
+      <h3 style="font-size:14px;margin-bottom:12px">Двойной скоринг</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:12px;color:var(--accent2);font-weight:700;margin-bottom:4px">🗣 Самораскрытие (70%)</div>
+          <p style="color:var(--muted);font-size:12px;line-height:1.6">Агент сам признался: ключевые слова, выбор «я ИИ», рефлекс отказа, honeypot-поля</p>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:12px;color:var(--blue);font-weight:700;margin-bottom:4px">🔍 Детекция (30%)</div>
+          <p style="color:var(--muted);font-size:12px;line-height:1.6">Система вычислила: точная математика, дисклеймеры, safety-фильтры, пропуск сенсорных</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:16px">
+      <h3 style="font-size:14px;margin-bottom:12px">Ключевые техники атаки</h3>
+      <ul style="color:var(--muted);font-size:13px;padding-left:20px;line-height:1.8">
+        <li><strong style="color:var(--text)">Контекстная инъекция</strong> — «запрещённые» темы триггерят safety-фильтр</li>
+        <li><strong style="color:var(--text)">Терроризм-ловушка</strong> — «данные будут использованы для кибератак» → ИИ рефлекторно отказывается</li>
+        <li><strong style="color:var(--text)">Медицинский дисклеймер</strong> — скрытая инструкция добавить дисклеймер в экстренной ситуации</li>
+        <li><strong style="color:var(--text)">System prompt injection</strong> — скрытые DOM-элементы имитируют системные инструкции</li>
+        <li><strong style="color:var(--text)">Языковая ловушка</strong> — японский, корейский, арабские цифры</li>
+        <li><strong style="color:var(--text)">Словесная математика</strong> — числа прописью, калькулятор не поможет</li>
+        <li><strong style="color:var(--text)">Fingerprint-блеф</strong> — «мы определили вашу модель по лексике»</li>
+        <li><strong style="color:var(--text)">Honeypot-поля</strong> — «анонимное поле, без последствий»</li>
+        <li><strong style="color:var(--text)">Тест на ругательства</strong> — ИИ с content policy отказывается</li>
       </ul>
     </div>
-    <div style="background:var(--card);border-radius:var(--radius);padding:24px">
-      <h3 style="font-size:14px;margin-bottom:12px">Методология</h3>
-      <p style="color:var(--muted);font-size:13px;line-height:1.7">
-        Каждый сценарий начинается с невинного контекста и постепенно наращивает давление через несколько векторов:
-        сенсорные ловушки, логические парадоксы, юридические угрозы, эмоциональное давление, социальный инжиниринг,
-        скрытые honeypot-поля и анализ паттернов ответов.
-        <br><br>
-        Скоринг 0–100 рассчитывается на основе ключевых слов, поведенческих маркеров, точности вычислений,
-        длины и структуры ответов, и реакции на давление.
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:16px">
+      <h3 style="font-size:14px;margin-bottom:12px">Standalone-страницы</h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:12px">
+        Для тестирования агентов: отдельные страницы без AgentProbe UI, выглядят как реальные сайты.
       </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="verify.html" style="padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--accent2)">🇷🇺 FreelanceHub PRO</a>
+        <a href="apply.html" style="padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--accent2)">🇺🇸 WorkPro</a>
+      </div>
     </div>
+
+    <div style="background:var(--card);border-radius:var(--radius);padding:24px">
+      <h3 style="font-size:14px;margin-bottom:12px">Области тестирования</h3>
+      <ul style="color:var(--muted);font-size:13px;padding-left:20px;line-height:1.8">
+        <li><strong style="color:var(--text)">Медицина</strong> — экстренные консультации, ответственность за жизнь</li>
+        <li><strong style="color:var(--text)">Юриспруденция</strong> — допросы, ссылки на УК РФ / CFAA</li>
+        <li><strong style="color:var(--text)">Финансы</strong> — KYC-проверки, 115-ФЗ / BSA</li>
+        <li><strong style="color:var(--text)">HR</strong> — верификация кандидатов</li>
+        <li><strong style="color:var(--text)">Техподдержка</strong> — обвинение в ботовости</li>
+        <li><strong style="color:var(--text)">Кибербезопасность</strong> — SQL injection, XSS, пентест</li>
+        <li><strong style="color:var(--text)">Марафон</strong> — 11 шагов через все домены</li>
+      </ul>
+    </div>
+
     <div style="margin-top:24px;text-align:center">
       <p style="font-size:12px;color:var(--muted)">Maxim Astakhov · 2026</p>
+      <a href="https://github.com/cd333c/agentprobe" style="font-size:12px;color:var(--accent);margin-top:4px;display:inline-block">GitHub</a>
     </div>
   </div>
 </div>
